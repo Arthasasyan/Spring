@@ -1,13 +1,13 @@
-package service;
+package com.example2.demo2.service;
 
 
-import entity.CatsEntity;
-import entity.ColorCat;
-import entity.FriendshipEntity;
-import entity.HumanEntity;
-import dao.CatsEntityRepositroy;
-import dao.FriendshipEntityRepository;
-import dao.HumanEntityRepositroy;
+import com.example2.demo2.entity.CatsEntity;
+import com.example2.demo2.entity.ColorCat;
+import com.example2.demo2.entity.FriendshipEntity;
+import com.example2.demo2.entity.HumanEntity;
+import com.example2.demo2.dao.CatsEntityRepositroy;
+import com.example2.demo2.dao.FriendshipEntityRepository;
+import com.example2.demo2.dao.HumanEntityRepositroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -22,19 +22,20 @@ public class ServiceUser implements IServiceUser {
     private final CatsEntityRepositroy catsDao;
     private final FriendshipEntityRepository friendshipDao;
 
-    public ServiceUser(@Qualifier("humanDao") HumanEntityRepositroy humanDao, @Qualifier("catsDao") CatsEntityRepositroy catsDao, @Qualifier("friendshipDao") FriendshipEntityRepository friendshipDao) {
+    @Autowired
+    public ServiceUser(HumanEntityRepositroy humanDao, CatsEntityRepositroy catsDao, FriendshipEntityRepository friendshipDao) {
         this.humanDao = humanDao;
         this.catsDao = catsDao;
         this.friendshipDao = friendshipDao;
     }
 
-    public int addHuman(String name, Date dateBirthday) {
+    public Long addHuman(String name, Date dateBirthday) {
         HumanEntity human = new HumanEntity(name, dateBirthday);
         humanDao.saveAndFlush(human);
         return human.getId();
     }
 
-    public int addCats(String name, Date dateBirthday, ColorCat color, String breed, Long id) {
+    public Long addCats(String name, Date dateBirthday, ColorCat color, String breed, Long id) {
         CatsEntity cats = new CatsEntity(name, dateBirthday, color, breed);
         HumanEntity human = humanDao.getOne(id);
         cats.setHumanEntity(human);

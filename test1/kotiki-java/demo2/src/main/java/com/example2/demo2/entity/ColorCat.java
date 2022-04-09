@@ -1,4 +1,4 @@
-package entity;
+package com.example2.demo2.entity;
 
 public enum ColorCat {
     WHITE("WHITE"),

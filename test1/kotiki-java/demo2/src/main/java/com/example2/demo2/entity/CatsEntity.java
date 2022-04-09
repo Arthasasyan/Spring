@@ -1,4 +1,4 @@
-package entity;
+package com.example2.demo2.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -9,7 +9,7 @@ public class CatsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id", nullable = false)
-    private int id;
+    private Long id;
     @Basic
     @Column(name = "name", nullable = true, length = 30)
     private String name;
@@ -44,11 +44,11 @@ public class CatsEntity {
         this.humanEntity = humanEntity;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

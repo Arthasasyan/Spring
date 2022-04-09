@@ -1,4 +1,4 @@
-package entity;
+package com.example2.demo2.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -11,14 +11,14 @@ public class HumanEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id", nullable = false)
-    private int id;
+    private Long id;
     @Basic
     @Column(name = "name", nullable = true, length = 30)
     private String name;
     @Basic
     @Column(name = "date_birthday", nullable = true)
     private Date dateBirthday;
-    @OneToMany(mappedBy = "humanEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "cats", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<CatsEntity> catsById;
 
     public HumanEntity() {
@@ -35,11 +35,11 @@ public class HumanEntity {
         this.catsById.add(cat);
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

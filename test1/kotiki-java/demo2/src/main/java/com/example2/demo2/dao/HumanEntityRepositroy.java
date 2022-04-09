@@ -1,11 +1,10 @@
-package dao;
+package com.example2.demo2.dao;
 
-import entity.CatsEntity;
+import com.example2.demo2.entity.HumanEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@Component("catsDao")
-public interface CatsEntityRepositroy extends JpaRepository<CatsEntity, Long> {
+public interface HumanEntityRepositroy extends JpaRepository<HumanEntity, Long> {
 }
