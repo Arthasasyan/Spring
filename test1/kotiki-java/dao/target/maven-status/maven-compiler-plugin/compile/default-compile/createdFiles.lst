@@ -1,0 +1,9 @@
+com\itmo\kotiki\dao\HumanDao.class
+com\itmo\kotiki\utils\HibernateSessionFactoryUtil.class
+com\itmo\kotiki\Main.class
+com\itmo\kotiki\dao\CatsDao.class
+com\itmo\kotiki\entity\FriendshipEntity.class
+com\itmo\kotiki\entity\HumanEntity.class
+com\itmo\kotiki\entity\CatsEntity.class
+com\itmo\kotiki\entity\ColorCat.class
+com\itmo\kotiki\dao\FriendshipDao.class
